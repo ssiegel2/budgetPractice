@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Budget</title>
+	<link rel = "stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body ng-app="budgetApp">
+
+	<div ng-controller="MainController">
+
+		<h1 id = "budgetName">{{title}}</h1>
+		
+		<div id="expenseForm">
+			Expense: <input name="Expense" class="inputExpense" type="text" ng-model="expense" />
+			Date: <input name="Date" class="inputDate" type="date" ng-model="date" />
+			Amount: <input name="Amount" class="inputAmount" type="number" ng-model="amount" />
+			<button id="submitExpense" ng-click="addExpense()">Submit</button>
+		</div>
+	<div>
+
+<!-- Angular -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+<!-- Modules -->
+<script src="js/app.js"></script>
+
+<!-- Controllers -->
+<script src="js/MainController.js"></script>
+
+</body>
+
+</html>
