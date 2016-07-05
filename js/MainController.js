@@ -1,6 +1,7 @@
 app.controller('MainController', ['$scope', '$http', function($scope, $http)
 {
 	$scope.title = "Budget";
+	$scope.expenses = "";
 	
 	$scope.addExpense = function()
 	{
@@ -9,6 +10,12 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http)
 			.success(function(data, status, headers, config)
 			{
 				console.log("Success!");
+			});
+			
+		$http.get("config/display.php")
+			.success(function(response)
+			{
+				$scope.expenses = response;
 			});
 	};
 }]);

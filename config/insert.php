@@ -1,8 +1,6 @@
 <?php
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$dbName = "budget";
+	
+	require_once('connect.php');
 	
 	$data = json_decode(file_get_contents("php://input"), true);
 	
@@ -10,11 +8,8 @@
 	$date = $data['date'];
 	$amount = $data['amount'];
 	
-	$con = mysqli_connect($servername, $username, $password, $dbName);
-	if(!$con)
-	{
-		die("Failed: " . mysqli_connect_error());
-	}
+	$conDB = new DBConnection("localhost", "root", "", "budget");
+	$con = $conDB->connect();
 	
 	$sql = "INSERT INTO expenses (expense, date, amount) VALUES ('".$expense."', '".$date."', '".$amount."')";
 	

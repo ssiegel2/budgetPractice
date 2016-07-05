@@ -10,7 +10,7 @@
 
 	<div ng-controller="MainController">
 
-		<h1 id = "budgetName">{{title}}</h1>
+		<h1 id = "budgetName">Budget</h1>
 		
 		<div id="expenseForm">
 			Expense: <input name="Expense" class="inputExpense" type="text" ng-model="expense" />
@@ -18,8 +18,17 @@
 			Amount: <input name="Amount" class="inputAmount" type="number" ng-model="amount" />
 			<button id="submitExpense" ng-click="addExpense()">Submit</button>
 		</div>
-	<div>
-
+		
+		<div id="expenseList">
+			<ul>
+				<li ng-repeat="i in expenses">
+					{{i.expense}}
+					{{i.date | date}}
+					{{i.amount | currency}}
+				</li>
+			</ul>
+		</div>
+		
 <!-- Angular -->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
 <!-- jQuery -->
