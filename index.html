@@ -8,7 +8,7 @@
 
 <body ng-app="budgetApp">
 
-	<div ng-controller="MainController">
+	<div ng-controller="MainController" ng-init="getExpense()">
 
 		<h1 id = "budgetName">Budget</h1>
 		
@@ -22,9 +22,9 @@
 		<div id="expenseList">
 			<ul>
 				<li ng-repeat="i in expenses">
-					{{i.expense}}
-					{{i.date | date}}
-					{{i.amount | currency}}
+					{{i.expense_name}}
+					{{i.expense_date | date}}
+					{{i.expense_amount | currency}}
 				</li>
 			</ul>
 		</div>

@@ -4,9 +4,11 @@
 	
 	$conDB = new DBConnection("localhost", "root", "", "budget");
 	$con = $conDB->connect();
+	$budgetID = $_GET['budgetID'];
+
 	
-	$sql = "SELECT * FROM expenses";
-	
+	$sql = "SELECT * FROM expense WHERE budget_id = " . $budgetID;
+	//echo $sql;
 	$data = mysqli_query($con, $sql);
 	
 	if(!$data)
