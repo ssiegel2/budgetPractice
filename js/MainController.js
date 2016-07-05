@@ -1,32 +1,28 @@
-app.controller('MainController', ['$scope', '$http', function($scope, $http)
+app.controller('MainController', ['$scope', 'ExpenseService', function($scope, ExpenseService)
 {
-	$scope.title = "Budget";
+	$scope.budgetID = 1;
+	$scope.title = "";
 	$scope.expenses = "";
 	
+	$scope.init = function()
+	{
+		//$scope.getBudget();
+		$scope.getExpense();
+	}
 	
 	
 	$scope.postExpense = function()
 	{
-		console.log($scope.expense);
-		console.log($scope.date);
-		console.log($scope.amount);
-		
-		$http.post("config/insert.php", {'expense': $scope.expense, 
-		'date': $scope.date, 'amount': $scope.amount})
-			.success(function(data, status, headers, config)
-			{
-				console.log("POST Success!");
-			});
+		ExpenseService.postExpenses($scope.expense, $scope.date, $scope.amount);
 	}
 	
 	$scope.getExpense = function()
 	{
-		$http.get("config/display.php?budgetID=1")
-			.success(function(response)
-			{
-				$scope.expenses = response;
-				console.log("GET Success!");
-			});
+		ExpenseService.getExpenses().then(function(data)
+		{
+			$scope.expenses = data;
+			console.log(data);
+		});
 	}
 	
 	$scope.addExpense = function()
