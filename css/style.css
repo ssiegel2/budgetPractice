@@ -9,3 +9,28 @@
 	text-align:center;
 	margin: 30px 0 0 0;
 }
+
+#expenseForm span, #expenseForm input, #expenseForm button
+{
+	display: flex;
+	align-items: center;
+}
+
+#expenseList ul
+{
+	overflow-x: auto;
+	/*overflow-y: scroll;*/
+	width: 220px;
+	height: 400px;
+}
+
+#expenseList li
+{
+	display: block;
+	list-style: none;
+}
+
+#expenseList li:hover
+{
+	background-color: #ddd;
+}

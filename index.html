@@ -13,18 +13,16 @@
 		<h1 id = "budgetName">Budget</h1>
 		
 		<div id="expenseForm">
-			Expense: <input name="Expense" class="inputExpense" type="text" ng-model="expense" />
-			Date: <input name="Date" class="inputDate" type="date" ng-model="date" />
-			Amount: <input name="Amount" class="inputAmount" type="number" ng-model="amount" />
+			<span>Expense: </span><input name="Expense" class="inputExpense" type="text" ng-model="expense" />
+			<span>Date: </span><input name="Date" class="inputDate" type="date" ng-model="date" />
+			<span>Amount: </span><input name="Amount" class="inputAmount" type="number" ng-model="amount" />
 			<button id="submitExpense" ng-click="addExpense()">Submit</button>
 		</div>
 		
 		<div id="expenseList">
 			<ul>
 				<li ng-repeat="i in expenses">
-					{{i.expense_name}}
-					{{i.expense_date | date}}
-					{{i.expense_amount | currency}}
+					<expense info="i" />
 				</li>
 			</ul>
 		</div>
@@ -42,6 +40,9 @@
 
 <!-- Services -->
 <script src="js/services.js"></script>
+
+<!-- Directives -->
+<script src="js/directives.js"></script>
 
 </body>
 

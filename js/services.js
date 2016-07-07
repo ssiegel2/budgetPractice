@@ -2,9 +2,9 @@ app.factory('ExpenseService', ['$http', function($http)
 {
 	return {
 	
-		getExpenses : function()
+		getExpenses : function(budgetID)
 		{
-			return $http.get("config/getExpense.php?budgetID=1")
+			return $http.get("config/getExpense.php?budgetID=" + budgetID)
 				.then(function(result)
 				{
 					console.log("GET Success!");

@@ -7,7 +7,7 @@
 	$budgetID = $_GET['budgetID'];
 
 	
-	$sql = "SELECT * FROM expense WHERE budget_id = " . $budgetID;
+	$sql = "SELECT * FROM expense WHERE budget_id = " . $budgetID . " ORDER BY expense_date DESC";
 	//echo $sql;
 	$data = mysqli_query($con, $sql);
 	

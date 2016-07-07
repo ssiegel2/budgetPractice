@@ -18,7 +18,7 @@ app.controller('MainController', ['$scope', 'ExpenseService', function($scope, E
 	
 	$scope.getExpense = function()
 	{
-		ExpenseService.getExpenses().then(function(data)
+		ExpenseService.getExpenses($scope.budgetID).then(function(data)
 		{
 			$scope.expenses = data;
 			console.log(data);
