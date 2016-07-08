@@ -12,20 +12,52 @@
 
 		<h1 id = "budgetName">Budget</h1>
 		
-		<div id="expenseForm">
-			<span>Expense: </span><input name="Expense" class="inputExpense" type="text" ng-model="expense" />
-			<span>Date: </span><input name="Date" class="inputDate" type="date" ng-model="date" />
-			<span>Amount: </span><input name="Amount" class="inputAmount" type="number" ng-model="amount" />
-			<button id="submitExpense" ng-click="addExpense()">Submit</button>
+		<div id="expensePanel">
+			<div id="expenseForm">
+				<div class="userInput">
+					<span>Expense Name</span>
+					<input name="Expense" class="inputEntry" type="text" ng-model="expense" />
+				</div>
+				<div class="userInput">
+					<span>Expense Date</span>
+					<input name="Date" class="inputDate" type="date" ng-model="date" />
+				</div>
+				<div class="userInput">
+					<span>Expense Amount</span>
+					<input name="Amount" class="inputAmount" type="number" ng-model="amount" />
+				</div>
+				<div class="userInput">
+					<button id="submitExpense" ng-click="addExpense()">Submit</button>
+				</div>
+			</div>
 		</div>
-		
-		<div id="expenseList">
-			<ul>
-				<li ng-repeat="i in expenses">
-					<expense info="i" />
-				</li>
-			</ul>
+		<div id="incomePanel">
+			<div id="incomeForm">
+				<div class="userInput">
+					<span>Income Name</span>
+					<input name="Expense" class="inputEntry" type="text" ng-model="expense" />
+				</div>
+				<div class="userInput">
+					<span>Income Date</span>
+					<input name="Date" class="inputDate" type="date" ng-model="date" />
+				</div>
+				<div class="userInput">
+					<span>Income Amount</span>
+					<input name="Amount" class="inputAmount" type="number" ng-model="amount" />
+				</div>
+				<div class="userInput">
+					<button id="submitIncome" ng-click="addExpense()">Submit</button>
+				</div>
+			</div>
 		</div>
+			<!--<div id="expenseList">
+				<ul>
+					<li ng-repeat="i in expenses">
+						<expense info="i" />
+					</li>
+				</ul>
+			</div>
+		</div>-->
 		
 <!-- Angular -->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>

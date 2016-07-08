@@ -1,19 +1,25 @@
 #budgetName
 {
 	text-align: center;
-	margin: 5% 0 0 0;
+	margin: 2.5% 0 0 0;
+}
+
+#expensePanel, #incomePanel
+{
+	border: 1px solid black;
+    text-align: center;
+    width: 230px;
+	margin: 2px 2px;
 }
 
 #expenseForm
 {
-	text-align:center;
-	margin: 30px 0 0 0;
+
 }
 
-#expenseForm span, #expenseForm input, #expenseForm button
+.userInput
 {
-	display: flex;
-	align-items: center;
+	
 }
 
 #expenseList ul
