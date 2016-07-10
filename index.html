@@ -16,15 +16,15 @@
 			<div id="expenseForm">
 				<div class="userInput">
 					<span>Expense Name</span>
-					<input name="Expense" class="inputEntry" type="text" ng-model="expense" />
+					<input name="Expense" class="inputEntry" type="text" ng-model="expenseName" />
 				</div>
 				<div class="userInput">
 					<span>Expense Date</span>
-					<input name="Date" class="inputDate" type="date" ng-model="date" />
+					<input name="Date" class="inputDate" type="date" ng-model="expenseDate" />
 				</div>
 				<div class="userInput">
 					<span>Expense Amount</span>
-					<input name="Amount" class="inputAmount" type="number" ng-model="amount" />
+					<input name="Amount" class="inputAmount" type="number" ng-model="expenseAmount" />
 				</div>
 				<div class="userInput">
 					<button id="submitExpense" ng-click="addExpense()">Submit</button>
@@ -35,18 +35,18 @@
 			<div id="incomeForm">
 				<div class="userInput">
 					<span>Income Name</span>
-					<input name="Expense" class="inputEntry" type="text" ng-model="expense" />
+					<input name="Expense" class="inputEntry" type="text" ng-model="incomeName" />
 				</div>
 				<div class="userInput">
 					<span>Income Date</span>
-					<input name="Date" class="inputDate" type="date" ng-model="date" />
+					<input name="Date" class="inputDate" type="date" ng-model="incomeDate" />
 				</div>
 				<div class="userInput">
 					<span>Income Amount</span>
-					<input name="Amount" class="inputAmount" type="number" ng-model="amount" />
+					<input name="Amount" class="inputAmount" type="number" ng-model="incomeAmount" />
 				</div>
 				<div class="userInput">
-					<button id="submitIncome" ng-click="addExpense()">Submit</button>
+					<button id="submitIncome" ng-click="addIncome()">Submit</button>
 				</div>
 			</div>
 		</div>

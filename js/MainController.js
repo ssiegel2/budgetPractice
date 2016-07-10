@@ -1,4 +1,4 @@
-app.controller('MainController', ['$scope', 'ExpenseService', function($scope, ExpenseService)
+app.controller('MainController', ['$scope', 'BudgetService', function($scope, BudgetService)
 {
 	$scope.budgetID = 1;
 	$scope.title = "";
@@ -7,20 +7,35 @@ app.controller('MainController', ['$scope', 'ExpenseService', function($scope, E
 	$scope.init = function()
 	{
 		//$scope.getBudget();
+		$scope.getIncome();
 		$scope.getExpense();
 	}
 	
 	
 	$scope.postExpense = function()
 	{
-		ExpenseService.postExpenses($scope.expense, $scope.date, $scope.amount);
+		BudgetService.postExpenses($scope.expenseName, $scope.expenseDate, $scope.expenseAmount);
 	}
 	
 	$scope.getExpense = function()
 	{
-		ExpenseService.getExpenses($scope.budgetID).then(function(data)
+		BudgetService.getExpenses($scope.budgetID).then(function(data)
 		{
 			$scope.expenses = data;
+			console.log(data);
+		});
+	}
+	
+	$scope.postIncome = function()
+	{
+		BudgetService.postIncome($scope.incomeName, $scope.incomeDate, $scope.incomeAmount);
+	}
+	
+	$scope.getIncome = function()
+	{
+		BudgetService.getIncome($scope.budgetID).then(function(data)
+		{
+			$scope.income = data;
 			console.log(data);
 		});
 	}
@@ -29,6 +44,12 @@ app.controller('MainController', ['$scope', 'ExpenseService', function($scope, E
 	{
 		$scope.postExpense();
 		$scope.getExpense();
+	};
+	
+	$scope.addIncome = function()
+	{
+		$scope.postIncome();
+		$scope.getIncome();
 	};
 	
 	
