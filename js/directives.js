@@ -15,7 +15,7 @@ app.directive('budgetDay' function() {
 	return {
 		restrict: 'E',
 		scope: {
-			
+			info: '='
 		},
 		templateUrl: 'js/budgetDay.html'
 	};

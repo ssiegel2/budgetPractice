@@ -5,6 +5,7 @@ app.controller('MainController', ['$scope', 'BudgetService', function($scope, Bu
 	$scope.categories = "";
 	$scope.expenses = "";
 	$scope.income = "";
+	$scope.budgetDays = "";
 	$scope.currentDate = new Date();
 	
 	$scope.init = function()
