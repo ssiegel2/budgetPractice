@@ -33,11 +33,12 @@
 		$data = json_decode(file_get_contents("php://input"), true);
 	
 		$budgetID = $_GET['budgetID'];
+		$categoryID = $data['categoryID'];
 		$expense = $data['expense'];
 		$date = $data['date'];
 		$amount = $data['amount'];
 		
-		$sql = "INSERT INTO expense (budget_id, expense_name, expense_date, expense_amount) VALUES ('".$budgetID."', '".$expense."', '".$date."', '".$amount."')";
+		$sql = "INSERT INTO expense (budget_id, category_id, expense_name, expense_date, expense_amount) VALUES ('".$budgetID."', '".$categoryID."','".$expense."', '".$date."', '".$amount."')";
 		
 		if(!mysqli_query($con, $sql))
 		{
@@ -72,18 +73,52 @@
 		$data = json_decode(file_get_contents("php://input"), true);
 	
 		$budgetID = $_GET['budgetID'];
+		$categoryID = $data['categoryID'];
 		$income = $data['income'];
 		$date = $data['date'];
 		$amount = $data['amount'];
 
 		
-		$sql = "INSERT INTO income (budget_id, income_name, income_date, income_amount) VALUES ('".$budgetID."', '".$income."', '".$date."', '".$amount."')";
+		$sql = "INSERT INTO income (budget_id, category_id, income_name, income_date, income_amount) VALUES ('".$budgetID."', '".$categoryID."','".$income."', '".$date."', '".$amount."')";
 		
 		if(!mysqli_query($con, $sql))
 		{
 			echo "Error";
 		}
 	}
+	else if($request == 'getCategories')
+	{
+		$sql = "SELECT * FROM category ORDER BY category_name ASC";
+		
+		$data = mysqli_query($con, $sql);
+		
+		if(!$data)
+		{
+			echo "Error";
+		}
+		else
+		{
+			$jsonArray = array();
+			while($row = mysqli_fetch_assoc($data))
+			{
+				$jsonArray[] = $row;
+			}
+			echo json_encode($jsonArray);
+		}
+		
+	}
+	else if($request == 'postCategories')
+	{
+		$data = json_decode(file_get_contents("php://input"), true);
 	
+		$categoryID = $data['name'];
+		
+		$sql = "INSERT INTO category (category_name) VALUES ('".$categoryID."')";
+		
+		if(!mysqli_query($con, $sql))
+		{
+			echo "Error";
+		}		
+	}
 	mysqli_close($con);
 ?>

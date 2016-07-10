@@ -12,6 +12,18 @@
 
 		<h1 id = "budgetName">Budget</h1>
 		
+		<div id="categoryPanel">
+			<div id="categoryForm">
+				<div class="userInput">	
+					<span>Category Name</span>
+					<input name="Category", class="inputEntry" type="text" ng-model="categoryName" />
+				</div>
+				<div class="userInput">	
+					<button id="submitCategory" ng-click="addCategory()">Submit</button>
+				</div>
+			</div>
+		</div>
+		
 		<div id="expensePanel">
 			<div id="expenseForm">
 				<div class="userInput">
@@ -27,10 +39,15 @@
 					<input name="Amount" class="inputAmount" type="number" ng-model="expenseAmount" />
 				</div>
 				<div class="userInput">
+					<span>Category Name</div>
+					<select class="selectCategory" ng-model="expenseCategory" ng-options="category.category_name for category in categories"></select>
+				
+				<div class="userInput">
 					<button id="submitExpense" ng-click="addExpense()">Submit</button>
 				</div>
 			</div>
 		</div>
+		
 		<div id="incomePanel">
 			<div id="incomeForm">
 				<div class="userInput">
@@ -46,10 +63,14 @@
 					<input name="Amount" class="inputAmount" type="number" ng-model="incomeAmount" />
 				</div>
 				<div class="userInput">
+					<span>Category Name</div>
+					<select class="selectCategory" ng-model="expenseCategory" ng-options="category.category_name for category in categories"></select>
+				</div>
+				<div class="userInput">
 					<button id="submitIncome" ng-click="addIncome()">Submit</button>
 				</div>
-			</div>
 		</div>
+	</div>
 			<!--<div id="expenseList">
 				<ul>
 					<li ng-repeat="i in expenses">

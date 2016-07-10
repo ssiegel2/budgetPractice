@@ -2,15 +2,31 @@ app.controller('MainController', ['$scope', 'BudgetService', function($scope, Bu
 {
 	$scope.budgetID = 1;
 	$scope.title = "";
+	$scope.categories = "";
 	$scope.expenses = "";
+	$scope.income = "";
+	$scope.currentDate = new Date();
 	
 	$scope.init = function()
 	{
 		//$scope.getBudget();
 		$scope.getIncome();
 		$scope.getExpense();
+		$scope.getCategory();
 	}
 	
+	$scope.getCategory = function()
+	{
+		BudgetService.getCategories().then(function(data)
+		{
+			$scope.categories = data;
+		});
+	}
+	
+	$scope.postCategory = function()
+	{
+		BudgetService.postCategories($scope.categoryName);
+	}
 	
 	$scope.postExpense = function()
 	{
@@ -52,6 +68,10 @@ app.controller('MainController', ['$scope', 'BudgetService', function($scope, Bu
 		$scope.getIncome();
 	};
 	
-	
+	$scope.addCategory = function()
+	{
+		$scope.postCategory();
+		$scope.getCategory();
+	}
 	
 }]);
