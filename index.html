@@ -64,7 +64,7 @@
 				</div>
 				<div class="userInput">
 					<span>Category Name</div>
-					<select class="selectCategory" ng-model="expenseCategory" ng-options="category.category_name for category in categories"></select>
+					<select class="selectCategory" ng-model="incomeCategory" ng-options="category.category_name for category in categories"></select>
 				</div>
 				<div class="userInput">
 					<button id="submitIncome" ng-click="addIncome()">Submit</button>
@@ -82,6 +82,7 @@
 		
 <!-- Angular -->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-resource.min.js"></script>
 <!-- jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 

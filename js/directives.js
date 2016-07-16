@@ -10,7 +10,7 @@ app.directive('expense', function() {
 	
 });
 
-app.directive('budgetDay' function() {
+app.directive('budgetDay', function() {
 
 	return {
 		restrict: 'E',

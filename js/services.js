@@ -1,10 +1,11 @@
-app.factory('BudgetService', ['$http', function($http)
+var BudgetService = app.factory('BudgetService', [function($http)
 {
+
 	return {
 	
-		getCategories : function()
+		getCategory : function()
 		{
-			return $http.get("config/api.php?request=getCategories")
+			return $http.get("config/api/category")
 				.then(function(result)
 				{
 					console.log("GET Success");
@@ -15,7 +16,7 @@ app.factory('BudgetService', ['$http', function($http)
 		
 		postCategories : function(name)
 		{
-			$http.post("config/api.php?request=postCategories", {'name' : name})
+			$http.post("config/api/postCategories", {'name' : name})
 				.then(function(data, status, headers, config)
 				{
 					console.log(data);

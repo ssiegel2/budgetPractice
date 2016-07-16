@@ -1,4 +1,4 @@
-app.controller('MainController', ['$scope', 'BudgetService', function($scope, BudgetService)
+app.controller('MainController', ['$scope', '$resource', function($scope, $resource)
 {
 	$scope.budgetID = 1;
 	$scope.title = "";
@@ -8,9 +8,10 @@ app.controller('MainController', ['$scope', 'BudgetService', function($scope, Bu
 	$scope.budgetDays = "";
 	$scope.currentDate = new Date();
 	
+	var budgetResource = $resource("api/:table/:id", {table: "@table", id: "@id"});
+	
 	$scope.init = function()
 	{
-		//$scope.getBudget();
 		$scope.getIncome();
 		$scope.getExpense();
 		$scope.getCategory();
@@ -18,43 +19,41 @@ app.controller('MainController', ['$scope', 'BudgetService', function($scope, Bu
 	
 	$scope.getCategory = function()
 	{
-		BudgetService.getCategories().then(function(data)
-		{
-			$scope.categories = data;
-		});
+		$scope.categories = budgetResource.query({table: 'category'});
 	}
 	
 	$scope.postCategory = function()
 	{
-		BudgetService.postCategories($scope.categoryName);
+		budgetResource.save(
+			{table: 'category', id: $scope.budgetID},
+			{category_name: $scope.categoryName}
+		);  
 	}
 	
 	$scope.postExpense = function()
 	{
-		BudgetService.postExpenses($scope.expenseName, $scope.expenseDate, $scope.expenseAmount);
+		budgetResource.save(
+			{table: 'expense', id: $scope.budgetID},
+			{expense_name: $scope.expenseName, expense_date: $scope.expenseDate, expense_amount: $scope.expenseAmount, category_id: parseInt($scope.expenseCategory.category_id)}
+		)  
 	}
 	
 	$scope.getExpense = function()
 	{
-		BudgetService.getExpenses($scope.budgetID).then(function(data)
-		{
-			$scope.expenses = data;
-			console.log(data);
-		});
+		$scope.expenses = budgetResource.query({table: 'expense'});
 	}
 	
 	$scope.postIncome = function()
 	{
-		BudgetService.postIncome($scope.incomeName, $scope.incomeDate, $scope.incomeAmount);
+		budgetResource.save(
+			{table: 'income', id: $scope.budgetID},
+			{income_name: $scope.incomeName, income_date: $scope.incomeDate, income_amount: $scope.incomeAmount, category_id: parseInt($scope.incomeCategory.category_id)}
+		)  
 	}
 	
 	$scope.getIncome = function()
 	{
-		BudgetService.getIncome($scope.budgetID).then(function(data)
-		{
-			$scope.income = data;
-			console.log(data);
-		});
+		$scope.income = budgetResource.query({table: 'income'});
 	}
 	
 	$scope.addExpense = function()
