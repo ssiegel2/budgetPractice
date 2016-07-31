@@ -1,4 +1,46 @@
-var BudgetService = app.factory('BudgetService', [function($http)
+app.service('RESTService', function($resource){
+
+	var budgetResource = $resource("api/:table/:id", {tableName: "@table", idNum: "@id"});
+
+	var factory = {};
+
+	factory.getCategory = function(){
+		return budgetResource.query({table: 'category'});
+	}
+
+	factory.postCategory = function(budgetID, categoryName){
+		budgetResource.save(
+			{table: 'category', id: budgetID},
+			{category_name: categoryName}
+		);
+	}
+
+	factory.postExpense = function(budgetID, expenseName, expenseDate, expenseAmount, categoryID){
+		budgetResource.save(
+			{table: 'expense', id: budgetID},
+			{expense_name: expenseName, expense_date: expenseDate, expense_amount: expenseAmount, category_id: parseInt(categoryID)}
+		)
+	}
+
+	factory.getExpense = function(){
+		return budgetResource.query({table: 'expense'});
+	}
+
+	factory.postIncome = function(budgetID, incomeName, incomeDate, incomeAmount, categoryID){
+		budgetResource.save(
+			{table: 'income', id: budgetID},
+			{income_name: incomeName, income_date: incomeDate, income_amount: incomeAmount, category_id: parseInt(categoryID)}
+		)
+	}
+
+	factory.getIncome = function(){
+		return budgetResource.query({table: 'income'});
+	}
+
+	return factory;
+});
+
+/*var BudgetService = app.factory('BudgetService', [function($http)
 {
 
 	return {
@@ -70,4 +112,4 @@ var BudgetService = app.factory('BudgetService', [function($http)
 
 	}
 
-}]);
+}]);*/
