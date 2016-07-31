@@ -4,11 +4,16 @@
 	margin: 2.5% 0 0 0;
 }
 
+#sidebar
+{
+	margin-left: 10px;
+	height: 100%;
+}
+
 #expensePanel, #incomePanel, #categoryPanel
 {
 	border: 1px solid black;
     text-align: center;
-    width: 230px;
 	margin: 2px 2px;
 }
 
@@ -22,7 +27,7 @@
 	
 }
 
-#expenseList ul
+#budgetDayList ul
 {
 	overflow-x: auto;
 	/*overflow-y: scroll;*/
@@ -30,13 +35,13 @@
 	height: 400px;
 }
 
-#expenseList li
+#budgetDayList li
 {
 	display: block;
 	list-style: none;
 }
 
-#expenseList li:hover
+#budgetDayList li:hover
 {
 	background-color: #ddd;
 }

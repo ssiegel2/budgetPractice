@@ -46,7 +46,11 @@
 	
 	function postRequest($con, $table, $id, $data)
 	{
-		$sql = "INSERT INTO $table SET budget_id=$id,";
+		$sql = "INSERT INTO $table SET";
+		if($table != 'category')
+		{
+			$sql .= " budget_id=$id,";
+		}
 		$i = 1;
 		foreach($data as $key => $value)
 		{
@@ -68,6 +72,7 @@
 
 		if(!mysqli_query($con, $sql))
 		{
+			echo $sql;
 			echo "ERROR";
 		};
 		
