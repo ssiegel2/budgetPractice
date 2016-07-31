@@ -14,61 +14,61 @@
 		<div class="page-header">
 			<h1 id = "budgetName">Budget</h1>
 		</div>
-		<div class="row">
-			<div class="col-xs-6 col-sm-3" id="sidebar">
+		<div class="row" id="dashboard">
+			<div class="col-xs-6 col-sm-3 col-md-2" id="sidebar">
 				<div id="categoryPanel">
 					<div id="categoryForm">
-						<div class="userInput">	
+						<div class="userInput">
 							<span>Category Name</span>
-							<input name="Category", class="inputEntry" type="text" ng-model="categoryName" />
+							<input class="sidebarInput" name="Category", class="inputEntry" type="text" ng-model="categoryName" />
 						</div>
-						<div class="userInput">	
+						<div class="userInput">
 							<button id="submitCategory" ng-click="addCategory()">Submit</button>
 						</div>
 					</div>
 				</div>
-				
+
 				<div id="expensePanel">
 					<div id="expenseForm">
 						<div class="userInput">
 							<span>Expense Name</span>
-							<input name="Expense" class="inputEntry" type="text" ng-model="expenseName" />
+							<input class="sidebarInput" name="Expense" class="inputEntry" type="text" ng-model="expenseName" />
 						</div>
 						<div class="userInput">
 							<span>Expense Date</span>
-							<input name="Date" class="inputDate" type="date" ng-model="expenseDate" />
+							<input class="sidebarInput" name="Date" class="inputDate" type="date" ng-model="expenseDate" />
 						</div>
 						<div class="userInput">
 							<span>Expense Amount</span>
-							<input name="Amount" class="inputAmount" type="number" ng-model="expenseAmount" />
+							<input class="sidebarInput" name="Amount" class="inputAmount" type="number" ng-model="expenseAmount" />
 						</div>
 						<div class="userInput">
 							<span>Category Name</div>
 							<select class="selectCategory" ng-model="expenseCategory" ng-options="category.category_name for category in categories"></select>
-						
+
 						<div class="userInput">
 							<button id="submitExpense" ng-click="addExpense()">Submit</button>
 						</div>
 					</div>
 				</div>
-				
+
 				<div id="incomePanel">
 					<div id="incomeForm">
 						<div class="userInput">
 							<span>Income Name</span>
-							<input name="Expense" class="inputEntry" type="text" ng-model="incomeName" />
+							<input class="sidebarInput" name="Expense" class="inputEntry" type="text" ng-model="incomeName" />
 						</div>
 						<div class="userInput">
 							<span>Income Date</span>
-							<input name="Date" class="inputDate" type="date" ng-model="incomeDate" />
+							<input class="sidebarInput" name="Date" class="inputDate" type="date" ng-model="incomeDate" />
 						</div>
 						<div class="userInput">
 							<span>Income Amount</span>
-							<input name="Amount" class="inputAmount" type="number" ng-model="incomeAmount" />
+							<input class="sidebarInput" name="Amount" class="inputAmount" type="number" ng-model="incomeAmount" />
 						</div>
 						<div class="userInput">
 							<span>Category Name</div>
-							<select class="selectCategory" ng-model="incomeCategory" ng-options="category.category_name for category in categories"></select>
+							<select class="sidebarInput" class="selectCategory" ng-model="incomeCategory" ng-options="category.category_name for category in categories"></select>
 						</div>
 						<div class="userInput">
 							<button id="submitIncome" ng-click="addIncome()">Submit</button>
@@ -77,7 +77,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<div id="expenseList">
 	</div>
 			<!--<div id="expenseList">
@@ -88,7 +88,7 @@
 				</ul>
 			</div>
 		</div>-->
-		
+
 <!-- Angular -->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-resource.min.js"></script>
